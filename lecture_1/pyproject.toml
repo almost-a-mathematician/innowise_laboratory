@@ -1,0 +1,15 @@
+[project]
+name = "my_project"
+version = "0.0.1"
+description = "Innowise Python Lab lecture 1"
+authors = [
+    {name = "Victoria", email = "almost.a.mathematician@gmail.com"}
+]
+
+dependencies = [
+    "colorama==0.4.6",
+]
+
+[project.scripts]
+my_project = "main:init"
+
