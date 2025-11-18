@@ -1,16 +1,17 @@
 from datetime import datetime
 
 
-def generate_profile(age):
+def generate_profile(age: int):
     '''This function determines age group by age'''
 
+    if age < 0:
+        return None
     if age <= 12:
         return 'Child'
     elif age <= 19:
         return 'Teenager'
     else:
-        return 'Adult'
-    
+        return 'Adult'  
 
 user_name = input('Enter your full name: ')
 birth_year_str = input('Enter your birth year: ')
@@ -32,7 +33,7 @@ life_stage = generate_profile(current_age)
 
 user_profile = {'name': user_name, 'age': current_age, 'stage': life_stage, 'hobbies': hobbies}
 
-print('---')
+print('\n---')
 print('Profile Summary:')
 print(f'Name: {user_profile["name"]}')
 print(f'Age: {user_profile["age"]}')
@@ -41,8 +42,8 @@ print(f'Life Stage: {user_profile["stage"]}')
 if hobbies:
     print(f'Favorite Hobbies ({len(hobbies)}):')
     for hobby in hobbies:
-        print('-', f'{hobby}')
+        print(f'- {hobby}')
 else: 
     print('You didn\'t mention any hobbies')
 
-print('---')
+print('---\n')
