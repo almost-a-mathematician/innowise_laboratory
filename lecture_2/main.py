@@ -13,6 +13,7 @@ def generate_profile(age: int):
     else:
         return 'Adult'  
 
+print('Hello!')
 user_name = input('Enter your full name: ')
 birth_year_str = input('Enter your birth year: ')
 
