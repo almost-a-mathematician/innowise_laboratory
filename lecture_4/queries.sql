@@ -12,6 +12,11 @@ CREATE TABLE "students" (
     CHECK ("birth_year" <= 2025)
 );
 
+-- Index: idx_students_birth_year
+-- Improves performance for queries filtering students by birth year
+
+CREATE INDEX idx_students_birth_year ON students (birth_year);
+
 -- Table: grades
 -- Stores student's grades for different subjects
 -- Relationships:
@@ -28,6 +33,21 @@ CREATE TABLE "grades" (
     FOREIGN KEY ("student_id") REFERENCES "students" ("id"),
     CHECK (1 <= grade <= 100)
 );
+
+-- Index: idx_grades_student_id
+-- Improves performance for JOIN operations between students and grades tables
+
+CREATE INDEX idx_grades_student_id ON grades (student_id);
+
+-- Index: idx_grades_subject
+-- Improves performance for grouping and filtering by subject
+
+CREATE INDEX idx_grades_subject ON grades (subject);
+
+-- Index: idx_grades_grade
+-- Improves performance for filtering grades by numeric range
+
+CREATE INDEX idx_grades_grade ON grades (grade);
 
 
 -- Insert sample students
