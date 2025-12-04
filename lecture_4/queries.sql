@@ -5,10 +5,9 @@
 --   * birth_year cannot exceed 2025 
 
 CREATE TABLE "students" (
-    "id" INTEGER,
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "full_name" TEXT UNIQUE,
     "birth_year" INTEGER,
-    PRIMARY KEY ("id"),
     CHECK ("birth_year" <= 2025)
 );
 
@@ -25,13 +24,12 @@ CREATE INDEX idx_students_birth_year ON students (birth_year);
 --   * grade must be between 1 and 100 
 
 CREATE TABLE "grades" (
-    "id" INTEGER,
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "student_id" INTEGER,
     "subject" TEXT,
     "grade" INTEGER,
-    PRIMARY KEY ("id"),
-    FOREIGN KEY ("student_id") REFERENCES "students" ("id"),
-    CHECK (1 <= grade <= 100)
+    FOREIGN KEY ("student_id") REFERENCES "students" ("id") ON DELETE CASCADE,
+    CHECK (1 <= grade AND grade <= 100)
 );
 
 -- Index: idx_grades_student_id
