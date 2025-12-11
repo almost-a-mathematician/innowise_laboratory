@@ -8,6 +8,8 @@ class Base(DeclarativeBase):
 
 DB_NAME: str = 'book_collection.db'
 
-engine = create_async_engine(f'sqlite+aiosqlite:///{DB_NAME}')
+DB_URL: str = f'sqlite+aiosqlite:///{DB_NAME}'
+
+engine = create_async_engine(DB_URL, echo=True)
 
 Session = async_sessionmaker(engine)
