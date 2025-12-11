@@ -1,3 +1,8 @@
+"""The main application module for the book API.
+
+This module creates and configures the FastAPI application instance.
+"""
+
 from fastapi import FastAPI
 import uvicorn
 from api.router import router as book_router
