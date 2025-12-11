@@ -1,0 +1,8 @@
+[tool.black]
+exclude = '(migrations|alembic.ini)'
+
+[tool.pylint.MASTER]
+ignore-paths = [ "^migrations/.*$" ]
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = "too-few-public-methods"

@@ -8,4 +8,5 @@ async def create_db_session() -> AsyncGenerator[AsyncSession, None]:
     async with Session() as session:
         yield session
 
+
 SessionDep = Annotated[AsyncSession, Depends(create_db_session)]
